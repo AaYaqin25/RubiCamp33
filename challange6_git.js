@@ -1,5 +1,5 @@
 function sentencesManipulation(sentence) {
-    let str = arguments[0].split(" ");
+    let str = sentence.split(" ");
     let result = [];
 
     let i = 0;
@@ -12,7 +12,8 @@ function sentencesManipulation(sentence) {
         }
         i++;
     }
-    console.log(result.toString().replace(/,/g, " "));
+    // console.log(result.toString().replace(/,/g, " "));
+    console.log(result.join(" "));
 }
 
 sentencesManipulation("ibu pergi ke pasar bersama aku");
