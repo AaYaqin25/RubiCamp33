@@ -20,14 +20,13 @@ rl.on('line', (line) => {
         if (line.trim().toLowerCase() == res[quest].term) {
             quest++;
             console.log("Selamat Anda Benar");
-            console.log(`Pertanyaan : ${res[quest].definition}`)
-            rl.prompt();
+            console.log(`Pertanyaan : ${res[quest].definition}`);
         } else {
             console.log("wkwkwk anda kurang beruntung");
         }
-    } else if (line.trim() == res[quest].term) {
+    } else if (line.trim().toLowerCase() == res[quest].term) {
         rl.close();
-        process.exit(0)
+        process.exit(0);
     } else {
         console.log("wkwkwk anda kurang beruntung");
     }
