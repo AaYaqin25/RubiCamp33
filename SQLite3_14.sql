@@ -33,6 +33,16 @@ CREATE TABLE dosenmengajar(
 
 );
 
+CREATE TABLE nilaimahasiswa (
+    id integer primary key autoincrement,
+    kodematakuliah varchar(50) not null,
+    nim varchar(50) not null,
+    nilai integer not null,
+    foreign key(kodematakuliah) references matakuliah(kodematakuliah),
+    foreign key(nim) references mahasiswa(nim)
+
+);
+
 INSERT INTO mahasiswa VALUES 
     ("A001", "Ahmad Ainul Yaqin", "Bogor", "Teknik Informatika"),
     ("A002", "Tantowi Alif", "Cimahi", "Ekonomi"),
@@ -63,3 +73,8 @@ INSERT INTO dosenmengajar (iddosen, nim) VALUES
     ("P001", "A001"),
     ("P002", "A002"),
     ("P003", "A003");
+
+INSERT INTO nilaimahasiswa (kodematakuliah, nim, nilai) VALUES
+    ("Z001", "A001", 80),
+    ("Z002", "A002", 70),
+    ("Z003", "A003", 85);
