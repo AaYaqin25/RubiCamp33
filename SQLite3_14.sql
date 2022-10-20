@@ -24,6 +24,15 @@ CREATE TABLE matakuliah (
     sks varchar(255) not null
 );
 
+CREATE TABLE dosenmengajar(
+    id integer primary key autoincrement,
+    iddosen varchar(50) not null,
+    nim varchar(50) not null,
+    foreign key(iddosen) references dosen(iddosen),
+    foreign key(nim) references mahasiswa(nim)
+
+);
+
 INSERT INTO mahasiswa VALUES 
     ("A001", "Ahmad Ainul Yaqin", "Bogor", "Teknik Informatika"),
     ("A002", "Tantowi Alif", "Cimahi", "Ekonomi"),
@@ -49,3 +58,8 @@ INSERT INTO matakuliah VALUES
     ("Z001", "Matematika", 3),
     ("Z002", "Agama", 2),
     ("Z003", "Bahasa Inggris", 4);
+
+INSERT INTO dosenmengajar (iddosen, nim) VALUES
+    ("P001", "A001"),
+    ("P002", "A002"),
+    ("P003", "A003");
