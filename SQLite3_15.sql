@@ -112,14 +112,13 @@ SELECT * FROM mahasiswa where umur < 20;
 SELECT * FROM nilaimahasiswa join matakuliah on nilaimahasiswa.kodematakuliah = matakuliah.kodematakuliah join mahasiswa on nilaimahasiswa.nim = mahasiswa.nim where nilaimahasiswa.nilai < "B";
 
 -- 4
-SELECT * FROM nilaimahasiswa join matakuliah on nilaimahasiswa.kodematakuliah = matakuliah.kodematakuliah join mahasiswa on nilaimahasiswa.nim = mahasiswa.nim where matakuliah.sks like '1%';
-
+SELECT mahasiswa.nim, mahasiswa.nama, matakuliah.sks from mahasiswa join matakuliah where matakuliah.sks > 10 GROUP BY sks;
 
 -- 5
 SELECT * FROM nilaimahasiswa join matakuliah on nilaimahasiswa.kodematakuliah = matakuliah.kodematakuliah join mahasiswa on nilaimahasiswa.nim = mahasiswa.nim where matakuliah.nama = "data mining";
 
 -- 6
-SELECT COUNT(*) FROM dosenmengajar join mahasiswa on dosenmengajar.nim = mahasiswa.nim join dosen on dosenmengajar.iddosen = dosen.iddosen;
+SELECT mahasiswa.nim, mahasiswa.nama, COUNT(dosenmengajar.nim) from mahasiswa join dosenmengajar using(nim) GROUP BY nim;
 
 -- 7
 SELECT * FROM mahasiswa ORDER BY umur;
