@@ -77,10 +77,10 @@ INSERT INTO dosen VALUES
 
 
 INSERT INTO matakuliah VALUES 
-    ("Z001", "data mining", 11),
-    ("Z002", "data mining", 12),
-    ("Z003", "Bahasa Inggris", 13),
-    ("Z004", "Matematika", 9);
+    ("Z001", "data mining", 3),
+    ("Z002", "data mining", 3),
+    ("Z003", "Bahasa Inggris", 3),
+    ("Z004", "Matematika", 3);
 
 INSERT INTO dosenmengajar (iddosen, nim) VALUES
     ("P001", "A001"),
@@ -112,13 +112,14 @@ SELECT * FROM mahasiswa where umur < 20;
 SELECT * FROM nilaimahasiswa join matakuliah on nilaimahasiswa.kodematakuliah = matakuliah.kodematakuliah join mahasiswa on nilaimahasiswa.nim = mahasiswa.nim where nilaimahasiswa.nilai < "B";
 
 -- 4
-SELECT mahasiswa.nim, mahasiswa.nama, matakuliah.sks from mahasiswa join matakuliah where matakuliah.sks > 10 GROUP BY sks;
+SELECT mahasiswa.nama, nilaimahasiswa.kodematakuliah, SUM(matakuliah.sks) FROM mahasiswa join nilaimahasiswa on mahasiswa.nim = nilaimahasiswa.nim join matakuliah on matakuliah.kodematakuliah = nilaimahasiswa.kodematakuliah
+where matakuliah.sks > 10;
 
 -- 5
 SELECT * FROM nilaimahasiswa join matakuliah on nilaimahasiswa.kodematakuliah = matakuliah.kodematakuliah join mahasiswa on nilaimahasiswa.nim = mahasiswa.nim where matakuliah.nama = "data mining";
 
 -- 6
-SELECT mahasiswa.nim, mahasiswa.nama, COUNT(dosenmengajar.nim) from mahasiswa join dosenmengajar using(nim) GROUP BY nim;
+SELECT dosenmengajar.nim, dosenmengajar.iddosen, COUNT(mahasiswa.nim) FROM dosenmengajar join mahasiswa on dosenmengajar.nim = mahasiswa.nim GROUP BY dosenmengajar.nim;
 
 -- 7
 SELECT * FROM mahasiswa ORDER BY umur;
