@@ -84,25 +84,26 @@ INSERT INTO nilaimahasiswa (kodematakuliah, nim, nilai) VALUES
     ("Z003", "A003", 85);
 
 -- 1
-SELECT * FROM mahasiswa;
+SELECT nim, nama, jurusan FROM mahasiswa;
 
 -- 2
 SELECT * FROM mahasiswa where umur < 20;
 
 -- 3 
-SELECT * FROM mahasiswa where nilai < "B";
+SELECT nama,nilai FROM mahasiswa where nilai < "B";
 
 -- 4
-SELECT * FROM mahasiswa where SKS > 10;
+SELECT nama, SKS FROM mahasiswa where SKS > 10;
 
 -- 5
-SELECT * FROM mahasiswa where matkul = "data mining";
+SELECT nama, matkul FROM mahasiswa where matkul = "data mining";
 
 -- 6
-SELECT mahasiswa.nama as nama_mahasiswa, dosen.nama from dosenmengajar join mahasiswa on dosenmengajar.nim = mahasiswa.nim join dosen on dosenmengajar.iddosen = dosen.iddosen;
+SELECT COUNT(nama) FROM mahasiswa;  
 
 -- 7
 SELECT * FROM mahasiswa ORDER BY umur;
 
 -- 8
-SELECT * FROM mahasiswa inner join dosen where nilai > "B";
+SELECT nilai FROM mahasiswa where nilai > "B";
+SELECT * FROM dosenmengajar join mahasiswa on dosenmengajar.nim = mahasiswa.nim join dosen on dosenmengajar.iddosen = dosen.iddosen;
