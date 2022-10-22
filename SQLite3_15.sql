@@ -112,8 +112,7 @@ SELECT * FROM mahasiswa where umur < 20;
 SELECT * FROM nilaimahasiswa join matakuliah on nilaimahasiswa.kodematakuliah = matakuliah.kodematakuliah join mahasiswa on nilaimahasiswa.nim = mahasiswa.nim where nilaimahasiswa.nilai < "B";
 
 -- 4
-SELECT mahasiswa.nama, nilaimahasiswa.kodematakuliah, SUM(matakuliah.sks) FROM mahasiswa join nilaimahasiswa on mahasiswa.nim = nilaimahasiswa.nim join matakuliah on matakuliah.kodematakuliah = nilaimahasiswa.kodematakuliah
-where matakuliah.sks > 10;
+SELECT mahasiswa.nama, nilaimahasiswa.kodematakuliah, SUM(matakuliah.sks) FROM mahasiswa join nilaimahasiswa on mahasiswa.nim = nilaimahasiswa.nim join matakuliah on matakuliah.kodematakuliah = nilaimahasiswa.kodematakuliah GROUP BY matakuliah.sks having SUM(matakuliah.sks) >= 10;
 
 -- 5
 SELECT * FROM nilaimahasiswa join matakuliah on nilaimahasiswa.kodematakuliah = matakuliah.kodematakuliah join mahasiswa on nilaimahasiswa.nim = mahasiswa.nim where matakuliah.nama = "data mining";
