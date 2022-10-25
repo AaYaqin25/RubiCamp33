@@ -1,0 +1,12 @@
+{
+  "name": "oop_17_import_export",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "main": "Run.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ahmad Ainul Yaqin",
+  "license": "ISC"
+}
