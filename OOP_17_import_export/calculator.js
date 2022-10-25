@@ -1,6 +1,6 @@
 export const PI = 22 / 7;
 
-export class Calculator {
+export default class Calculator {
     constructor() {
         this.number = 1;
     }
@@ -29,7 +29,7 @@ export class Calculator {
         return this;
     }
 
-    squreRoot() {
+    squareRoot() {
         this.number = Math.sqrt(this.number);
         return this;
     }
@@ -39,7 +39,7 @@ export class Calculator {
         return this;
     }
 
-    squre() {
+    square() {
         this.number = Math.pow(this.number, 2);
         return this;
     }
