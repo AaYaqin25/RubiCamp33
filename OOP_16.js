@@ -4,7 +4,7 @@ class Tyre {
     }
 }
 
-class Car extends Tyre{
+class Car extends Tyre {
     constructor(door, seat) {
         super("dunlop", 15 + ' ' + "inch");
         this.door = door;
@@ -51,7 +51,7 @@ class Car extends Tyre{
 
 class Agya extends Car {
     constructor() {
-        super(5, 5 + " "+ "seater");
+        super(5, 5 + " " + "seater");
         this.varian = "Agya";
         this.sn = this.serialNumber();
         this.year = 2020;
@@ -66,7 +66,7 @@ class Agya extends Car {
 
 class Rush extends Car {
     constructor() {
-        super(5, 5 + " "+ "seater");
+        super(5, 5 + " " + "seater");
         this.varian = "Rush";
         this.sn = this.serialNumber();
         this.year = 2022;
@@ -87,14 +87,19 @@ class CarFactory {
         for (let i = 0; i < Math.round(Math.random() * 10); i++) {
             let mobilAgya = new Agya();
             let mobilRush = new Rush();
-            this.cars.push(mobilAgya,mobilRush);
+            this.cars.push(mobilAgya, mobilRush);
         }
     }
 
     guaranteeSimulation(simulationYear) {
-      this.cars.forEach(item => {
-        console.log(`varian: ${item.varian}, SN: ${item.sn}, Door: ${item.door}, Seat: ${item.seat}, Tyre: ${item.tyre}, Years: ${item.year}, Warranty: ${item.guarantee} years`);
-      });
+        this.cars.forEach(item => {
+            let masaAktif = item.year + item.guarantee;
+            if (masaAktif > simulationYear) {
+                console.log("Jaminan sudah expired");
+            } else {
+                console.log(`varian: ${item.varian}, SN: ${item.sn}, Door: ${item.door}, Seat: ${item.seat}, Tyre: ${item.tyre}, Years: ${item.year}, Warranty: ${item.guarantee} years`);
+            }
+        });
 
     }
 }
