@@ -1,0 +1,16 @@
+{
+  "name": "mvc_oop_18",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Import Export",
+  "main": "run.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ahmad Ainul Yaqin",
+  "license": "ISC",
+  "dependencies": {
+    "cli-table": "^0.3.11",
+    "sqlite3": "^5.1.2"
+  }
+}
