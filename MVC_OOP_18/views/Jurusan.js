@@ -1,29 +1,13 @@
-import Table from 'cli-table';
+import { Jurusan } from "../controllers/Jurusan.js";
 
-export function tampilanJurusan(rows) {
-        var table = new Table({
-            head: ["Kode Jurusan", "Nama Jurusan"]
-            , colWidths: [20, 30]
-        });
-        rows.forEach(item => {
-            table.push([item.kodejurusan, item.namajurusan]
-            );
-    
-        });
-        console.log(table.toString());
+export class ViewsJurusan {
+    static isiJurusan() {
+        console.log("silakan pilih opsi di bawah ini");
+        console.log("[1] Daftar Jurusan");
+        console.log("[2] Cari Jurusan");
+        console.log("[3] Tambah Jusssrusan");
+        console.log("[4] Hapus Jurusan");
+        console.log("[5] Kembali");
+        Jurusan.menuJurusan();
     }
-    
-export function tampilanJurusan2(rows) {
-        var table = new Table({
-            head: ["Kode Jurusan", "Nama Jurusan"]
-            , colWidths: [20, 30]
-        });
-        rows.forEach(item => {
-            table.push([item.kodejurusan, item.namajurusan]
-            );
-    
-        });
-        console.log(table.toString());
-    }
-    
-
+}

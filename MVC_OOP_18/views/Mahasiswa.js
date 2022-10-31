@@ -1,42 +1,15 @@
-import Table from 'cli-table';
+import { Mahasiswa } from "../controllers/Mahasiswa.js";
 
-export function tampilanMahasiswa(rows) {
-    var table = new Table({
-        head: ["NIM", 'Nama', "Alamat", "Jurusan", "Umur"]
-        , colWidths: [10, 30, 20, 30, 10]
-    });
-    rows.forEach(item => {
-        table.push([item.nim, item.nama, item.alamat, item.jurusan, item.umur]);
-
-    });
-    console.log(table.toString());
-
+export class ViewsMahasiswa {
+    static isiMahasiswa() {
+        console.log("silakan pilih opsi di bawah ini");
+        console.log("[1] Daftar Mahasiswa");
+        console.log("[2] Cari Mahasiswa");
+        console.log("[3] Tambah Mahasiswa");
+        console.log("[4] Hapus Mahasiswa");
+        console.log("[5] Kembali");
+        Mahasiswa.menuMahasiswa();
+    }
 }
 
-export function tampilanMahasiswa2(rows) {
-    var table = new Table({
-        head: ["NIM", 'Nama', "Alamat", "Jurusan", "Umur"]
-        , colWidths: [10, 30, 20, 30, 10]
-    });
-    rows.forEach(item => {
-        table.push([item.nim, item.nama, item.alamat, item.jurusan, item.umur]
-        );
 
-    });
-
-    console.log(table.toString());
-}
-
-export function tampilanMahasiswa3(rows) {
-    var table = new Table({
-        head: ["NIM", 'Nama', "Alamat", "Jurusan", "Umur"]
-        , colWidths: [10, 30, 20, 30, 10]
-    });
-    rows.forEach(item => {
-        table.push([item.nim, item.nama, item.alamat, item.jurusan, item.umur]
-        );
-
-    });
-
-    console.log(table.toString());
-}
