@@ -1,43 +1,30 @@
-import { inputanMahasiswa } from "./controllers/Mahasiswa.js"
-import { inputanJurusan } from "./controllers/Jurusan.js"
-import { inputanKontrak } from "./controllers/Kontrak.js"
-import { inputanDosen } from "./controllers/Dosen.js"
-import { inputanMatakuliah } from "./controllers/Matakuliah.js"
-// import { dosenDB } from "../models/Dosen.js"
-import { jurusanDB } from "../models/Jurusan.js"
-import { kontrakDB } from "../models/Kontrak.js"
-import { mahasiswaDB } from "../models/Mahasiswa.js"
-import { mataKuliahDB } from "../models/Matakuliah.js"
-import { tampilanDosen } from "../views/Dosen.js"
-import { tampilanJurusan } from "../views/Jurusan.js"
-import { tampilanKontrak } from "../views/Kontrak.js"
-import { tampilanMahasiswa } from "../views/Mahasiswa.js"
-import { tampilanMatakuliah } from "../views/Matakuliah.js"
-import { tampilanMenu } from "./views/Menu.js"
+import readline from 'node:readline';
+import fs from 'fs';
+import { Home } from './views/Menu.js';
 
 
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+});
+const users = JSON.parse(fs.readFileSync("username.json", "utf-8"));
 
-function all() {
-    inputanMahasiswa(function() {
-        inputanJurusan()
-        inputanKontrak()
-        inputanDosen()
-        inputanMatakuliah();
-        dosenDB(data)
-        jurusanDB(data)
-        kontrakDB(data)
-        mahasiswaDB(data)
-        mataKuliahDB(data)
-        tampilanDosen(data)
-        tampilanJurusan(data)
-        tampilanKontrak(data)
-        tampilanMahasiswa(data)
-        tampilanMatakuliah(data)
-        tampilanMenu()
+console.log("========================================================================================");
+console.log("Welcome to Universitas Pendidikan Indonesia");
+console.log("Jl. Setiabudhi No.255");
+console.log("========================================================================================");
+
+rl.question("username: ", (input) => {
+    users.forEach(item => {
+        if (input === item.username) {
+            rl.question("password: ", (answer) => {
+                if (answer === item.password) {
+                    console.log("========================================================================================");
+                    console.log(`welcome yaqin role anda ${item.role}`);
+                    console.log("========================================================================================");
+                    Home.menu();
+                }
+            })
+        }
     })
-    
-}    
-
-console.log(all());
-
-all();
+})
